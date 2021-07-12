@@ -25,4 +25,9 @@ class ClassroomRepository extends ServiceEntityRepository implements ClassroomRe
         $this->getEntityManager()->flush();
     }
 
+    public function remove(Classroom $classroom)
+    {
+        $this->getEntityManager()->remove($classroom);
+        $this->getEntityManager()->flush();
+    }
 }

@@ -16,10 +16,13 @@ class DeleteClassroomCommandHandler
         $this->classroomRepository = $classroomRepository;
     }
 
-    public function __invoke(CreateClassroomCommand $classroomCommand)
+    public function __invoke(int $id)
     {
-        $classroom = new Classroom($classroomCommand->getName(), $classroomCommand->getIsActive());
+        $classroom = $this->classroomRepository->find($id);
 
-        $this->classroomRepository->add($classroom);
+        if ($classroom === null) {
+            throw new \Exception(sprintf('Classroom with id "%s" is not found', $id));
+        }
+        $this->classroomRepository->remove($classroom);
     }
 }

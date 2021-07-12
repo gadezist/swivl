@@ -30,7 +30,7 @@ class CreateClassroomController extends AbstractController
     public function __invoke(Request $request)
     {
         $createClassroomCommand = new CreateClassroomCommand($request->request->get('name'), (bool)$request->request->get('is_active'));
-        ($this->classroomCommandHandler)($createClassroomCommand);
-        return new JsonResponse([], Response::HTTP_OK);
+
+        return new JsonResponse(($this->classroomCommandHandler)($createClassroomCommand), Response::HTTP_OK);
     }
 }

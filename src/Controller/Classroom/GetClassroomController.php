@@ -27,6 +27,9 @@ class GetClassroomController extends AbstractController
      */
     public function __invoke($id)
     {
+        if (!is_numeric($id)) {
+            return new JsonResponse(['error' => 'parameter not integer'], Response::HTTP_NON_AUTHORITATIVE_INFORMATION);
+        }
         return new JsonResponse(($this->classroomQueryHandler)($id), Response::HTTP_OK);
     }
 }
