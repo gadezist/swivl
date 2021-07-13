@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Application\Query\Classroom;
-
 
 use App\Application\Query\Classroom\DTO\ClassroomDTO;
 use App\Entity\Classroom;
@@ -24,15 +24,12 @@ class GetClassroomQueryHandler
         return $classroom ? $this->fetchClassroomDTO($classroom) : [];
     }
 
-    /**
-     * @param Classroom $classroom
-     * @return ClassroomDTO
-     */
     private function fetchClassroomDTO(Classroom $classroom): ClassroomDTO
     {
         $classroomDTO = new ClassroomDTO();
         $classroomDTO->id = $classroom->getId();
         $classroomDTO->name = $classroom->getName();
+        $classroomDTO->isActive = $classroom->getIsActive();
 
         return $classroomDTO;
     }

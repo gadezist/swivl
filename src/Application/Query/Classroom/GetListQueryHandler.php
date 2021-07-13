@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Application\Query\Classroom;
-
 
 use App\Application\Query\Classroom\DTO\ClassroomDTO;
 use App\Entity\Classroom;

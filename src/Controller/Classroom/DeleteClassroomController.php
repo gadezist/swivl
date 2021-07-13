@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller\Classroom;
 
-
 use App\Application\Command\Classroom\DeleteClassroomCommandHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -22,14 +21,11 @@ class DeleteClassroomController extends AbstractController
 
     /**
      * @Route("/api/classrooms/delete/{id}", name="classroom_delete_id", methods={"DELETE"})
-     * @param $id
+     * @param int $id
      * @return JsonResponse
      */
-    public function __invoke($id)
+    public function __invoke(int $id)
     {
-        if (!is_numeric($id)) {
-            return new JsonResponse(['error' => 'parameter not integer'], Response::HTTP_NON_AUTHORITATIVE_INFORMATION);
-        }
-        return new JsonResponse(($this->classroomCommandHandler)((int)$id), Response::HTTP_OK);
+        return new JsonResponse(($this->classroomCommandHandler)($id), Response::HTTP_OK);
     }
 }

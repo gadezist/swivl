@@ -1,0 +1,5 @@
+App\Controller\RequestDTO\Api\UpdateClassroomDTO:
+  properties:
+    name:
+      - Length:
+          max: 255

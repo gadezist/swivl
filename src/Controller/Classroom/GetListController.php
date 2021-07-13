@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller\Classroom;
 
-
 use App\Application\Query\Classroom\GetListQueryHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
