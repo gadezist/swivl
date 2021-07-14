@@ -13,10 +13,7 @@ git clone https://github.com/gadezist/swivl.git
 
 php composer.phar install
 
-Сделать миграции базы
-
-symfony console doctrine:migrations:migrate
-
+Сделать импорт базы из папки dump
 
 Документация
 
